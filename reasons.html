@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body {
+    text-align: center;
+    background: #8E0E00;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1F1C18, #8E0E00);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #1F1C18, #8E0E00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  }
+
+  
+
+  h1{
+    font-family: cursive;
+    color:black;
+    text-shadow: 1px 1px 20px grey;
+    
+  }
+  .ml7 {
+  position: relative;
+  font-weight: 900;
+  font-size: 3.7em;
+}
+.ml7 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+.ml7 .letter {
+  transform-origin: 0 100%;
+  display: inline-block;
+  line-height: 1em;
+}
+
+.back{
+    width:60px;
+    height:60px;
+    background-image: url('back.png');
+   background-size: cover;
+    border-radius: 60px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    float: left;
+    margin-left:15px;
+    margin-top:-70px;
+}
+iframe{
+  margin-top: -50px;
+}
+  </style>
+
+  
+<h1 class="ml7" >
+  <span class="text-wrapper">
+    <span class="letters" >Ask Puludhi Bot </span>
+  </span>
+</h1>
+<button onclick="navigate()" class="back"></button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+<iframe
+    allow="microphone;"
+    width="1000"
+    height="430"
+    style="margin-left: 100px;"
+    style="border: 3px solid maroon;"
+    src="https://console.dialogflow.com/api-client/demo/embedded/24747999-f824-4ddd-90b2-34b34862072a">
+</iframe>
+<script>
+  // Wrap every letter in a span
+var textWrapper = document.querySelector('.ml7 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml7 .letter',
+    translateY: ["1.1em", 0],
+    translateX: ["0.55em", 0],
+    translateZ: 0,
+    rotateZ: [180, 0],
+    duration: 750,
+    easing: "easeOutExpo",
+    delay: (el, i) => 50 * i
+  }).add({
+    targets: '.ml7',
+    opacity: 0,
+    duration: 10000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+
+  function navigate(){
+        window.location.href ="index.html"
+    }
+</script>
+
+</body>
+</html>

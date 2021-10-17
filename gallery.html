@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Memory Lane</title>
+<style>
+
+  
+body {
+  font-family: Arial;
+  margin: 0;
+  
+  background: #f12711;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f5af19, #f12711);
+overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgb(236, 165, 95);
+}
+
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 20px rgb(245, 125, 5);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.mySlides img {
+  vertical-align: middle;
+  width: 300px;
+  height: 300px;
+}
+
+.column img{
+  width: 150px;
+  height: 150px;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+  
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+a.prev,
+a.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+  text-decoration: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev{
+    left:0;
+
+}
+
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: black;
+  font-size: 20px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  
+  float: left;
+  width: 16.66%;
+
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+#myCarousel
+{
+    background-color: transparent;
+    width:50%;
+    
+}
+
+#myCarousel img
+{
+    height: 300px;
+    width: 300px;
+       }
+
+.carousel-inner h3
+{
+    margin-bottom: -100px;
+    color : white;
+    font-size: 20px;
+}
+
+
+
+hr{
+  width: 70%;
+  border: 1.5px solid black;
+}
+
+.flip-card {
+
+width: 300px;
+height: 300px;
+float: left;
+margin-left: 30px;
+
+}
+
+.flip-card-inner {
+
+width: 100%;
+height: 100%;
+
+transition: transform 0.6s;
+transform-style: preserve-3d;
+
+}
+
+.flip-card:hover .flip-card-inner {
+transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+position: absolute;
+
+width: 100%;
+height: 100%;
+
+}
+
+.flip-card-front {
+background-color: #bbb;
+
+color: black;
+}
+
+.flip-card-back {
+background-color: #2980b9;
+
+color: white;
+transform: rotateY(180deg);
+}
+
+.back{
+    width:60px;
+    height:60px;
+    background-image: url('back.png');
+   background-size: cover;
+    border-radius: 60px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    float: left;
+    margin-left:20px;
+    margin-top:-40px;
+}
+
+.divide{
+  width: 80%;
+  border: 1px dashed orange
+}
+
+.hello {
+  opacity: 1 !important;
+}
+.full {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.full .content {
+  background-color: rgba(0,0,0,0.75) !important;
+  height: 100%;
+  width: 100%;
+  display: grid;
+}
+.full .content img {
+  left: 50%;
+  transform: translate3d(0, 0, 0);
+  animation: zoomin 1s ease;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+}
+.byebye {
+  opacity: 0;
+}
+.byebye:hover {
+  transform: scale(0.2) !important;
+}
+.gallery {
+  display: grid;
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 8px;
+}
+.gallery img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 16px #333;
+  transition: all 1.5s ease;
+}
+.gallery img:hover {
+  box-shadow: 0 0 32px #333;
+}
+.gallery .content {
+  padding: 4px;
+}
+.gallery .gallery-item {
+  transition: grid-row-start 300ms linear;
+  transition: transform 300ms ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.gallery .gallery-item:hover {
+  transform: scale(1.025);
+}
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  }
+}
+@media (max-width: 400px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+  }
+}
+@-moz-keyframes zoomin {
+  0% {
+    max-width: 50%;
+    transform: rotate(-30deg);
+    filter: blur(4px);
+  }
+  30% {
+    filter: blur(4px);
+    transform: rotate(-80deg);
+  }
+  70% {
+    max-width: 50%;
+    transform: rotate(45deg);
+  }
+  100% {
+    max-width: 100%;
+    transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes zoomin {
+  0% {
+    max-width: 50%;
+    transform: rotate(-30deg);
+    filter: blur(4px);
+  }
+  30% {
+    filter: blur(4px);
+    transform: rotate(-80deg);
+  }
+  70% {
+    max-width: 50%;
+    transform: rotate(45deg);
+  }
+  100% {
+    max-width: 100%;
+    transform: rotate(0deg);
+  }
+}
+@-o-keyframes zoomin {
+  0% {
+    max-width: 50%;
+    transform: rotate(-30deg);
+    filter: blur(4px);
+  }
+  30% {
+    filter: blur(4px);
+    transform: rotate(-80deg);
+  }
+  70% {
+    max-width: 50%;
+    transform: rotate(45deg);
+  }
+  100% {
+    max-width: 100%;
+    transform: rotate(0deg);
+  }
+}
+@keyframes zoomin {
+  0% {
+    max-width: 50%;
+    transform: rotate(-30deg);
+    filter: blur(4px);
+  }
+  30% {
+    filter: blur(4px);
+    transform: rotate(-80deg);
+  }
+  70% {
+    max-width: 50%;
+    transform: rotate(45deg);
+  }
+  100% {
+    max-width: 100%;
+    transform: rotate(0deg);
+  }
+}
+
+
+
+
+
+</style>
+<body>
+
+  <center>
+
+<h2 style="text-align:center">MEMORY LANE</h2>
+<h4>2018 Birthday - Oru Kannoetam</h4>
+<button onclick="navigate()" class="back"></button>
+<br>
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <img src="g1.jpg">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+    <img src="g2.jpg" >
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+    <img src="g3.jpg" >
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+    <img src="g4.jpg" >
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+    <img src="g5.jpg" >
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+    <img src="g6.jpg" >
+  </div>
+    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="g1.jpg"  onclick="currentSlide(1)" alt="The Birthday Girl ~ 18/10/2018">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="g2.jpg"  onclick="currentSlide(2)" alt="Thasnim,Yasmin,Sadika vin ulaipu">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="g3.jpg" onclick="currentSlide(3)" alt="Surprise-undra per la onnu senju settle aayirkom">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="g4.jpg" onclick="currentSlide(4)" alt="That Malayil Tnagar-il Gift kaaga Shopping seydhu bus-uku wait panniya tharunam">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="g5.jpg" onclick="currentSlide(5)" alt="Idhu pose-unga neenga nambalanaalum adhaan nesam .Ennenna pandraa paarungaa">
+    </div>    
+    <div class="column">
+      <img class="demo cursor" src="g6.jpg" onclick="currentSlide(6)" alt="Aama naangadhaan andha 4 peru. Engalku cringe-una ennenney theryaadhu">
+    </div>
+  </div>
+</div>
+<br><br>
+
+<br>
+<br>
+<!-- Left and right controls -->
+<section id="slides">
+  <h2>SLIDE GALLERY</h2>
+  <h3>Pavi-yin Navarsangal</h3>
+  
+  <br>
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+<!-- Indicators -->
+<ol class="carousel-indicators">
+ <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+ <li data-target="#myCarousel" data-slide-to="1"></li>
+ <li data-target="#myCarousel" data-slide-to="2"></li>
+   <li data-target="#myCarousel" data-slide-to="3"></li>
+ <li data-target="#myCarousel" data-slide-to="4"></li>
+   <li data-target="#myCarousel" data-slide-to="5"></li>
+ <li data-target="#myCarousel" data-slide-to="6"></li>
+   <li data-target="#myCarousel" data-slide-to="7"></li>
+
+</ol>
+
+<!-- Wrapper for slides -->
+<div class="carousel-inner">
+
+ <div class="item active">
+   <img class="img-responsive" src="s1.jpg" >
+   <div class="carousel-caption">
+     <h3>#LoosuPavi</h3>
+     
+   </div>
+ </div>
+
+ <div class="item">
+   <img class="img-responsive" src="s2.jpg" >
+   <div class="carousel-caption">
+     <h3>#ThalaValiPavi</h3>
+     
+   </div>
+ </div>
+
+ <div class="item">
+   <img class="img-responsive" src="s3.jpg" >
+   <div class="carousel-caption">
+     <h3>#MeditationPavi</h3>
+     
+   </div>
+ </div>
+    <div class="item">
+   <img class="img-responsive" src="s4.gif" >
+   <div class="carousel-caption">
+     <h3>#VaandhiPavi</h3>
+     
+   </div>
+ </div>
+    <div class="item">
+   <img class="img-responsive" src="s5.jpg" >
+   <div class="carousel-caption">
+     <h3>#ThoonguMoonjuPavi</h3>
+     
+   </div>
+ </div>
+    <div class="item">
+   <img class="img-responsive" src="s6.jpg" >
+   <div class="carousel-caption">
+     <h3>#PadeepsPavi</h3>
+     
+   </div>
+ </div>
+    <div class="item">
+   <img class="img-responsive" src="s7.jpg" >
+   <div class="carousel-caption">
+     <h3>#SoethuPavi</h3>
+     
+   </div>
+ </div>
+    <div class="item">
+   <img class="img-responsive" src="s8.jpg" >
+   <div class="carousel-caption">
+     <h3>#AlaguPavi</h3>
+     
+   </div>
+ </div>
+</div>
+
+<!-- Left and right controls -->
+<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+ <span class="glyphicon glyphicon-chevron-left"></span>
+ <span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#myCarousel" data-slide="next">
+ <span class="glyphicon glyphicon-chevron-right"></span>
+ <span class="sr-only">Next</span>
+</a>
+</div>
+   </section>
+
+  
+
+   <h1 style="margin-top: 120px;">Masonry Gallery</h1>
+   <h3>Academy naatkal Koothu</h3>
+   <br><br>
+   
+
+    <div class="gallery" id="gallery">
+        <div class="gallery-item">
+            <div class="content"><img src="a1.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a2.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a3.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a4.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a5.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a6.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a7.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a8.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a9.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a10.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a11.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a12.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a13.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a14.gif" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a15.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a16.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a17.jpeg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a18.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a19.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a20.jpg" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a21.gif" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a22.gif" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a23.gif" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a24.gif" alt=""></div>
+        </div>
+        <div class="gallery-item">
+            <div class="content"><img src="a25.PNG" alt=""></div>
+        </div>
+    </div>
+
+    <br><br><br>
+
+   <h1>Card Flip </h1>
+<h3>Hover over the image below:</h3>
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+        <h1>Metro Ride</h1> 
+      <p>OC la kedacha urine eh kooda madak madak nu kudipom neenga vera</p> 
+      <p>#OC #MetroRail</p>   
+    </div>
+    <div class="flip-card-back">
+        <img src="f1.jpg" style="width:300px;height:300px;">
+    </div>
+  </div>
+</div>
+
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+        <h1>Roller Coaster Lite</h1> 
+      <p>Kadavul mottha alagayum onaku vaay la vacchirkaanda </p> 
+      <p>#expressionqueen</p>   
+    </div>
+    <div class="flip-card-back">
+        <img src="f3.PNG" style="width:300px;height:300px;">
+    </div>
+  </div>
+</div>
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <h1>Coal Aftermath</h1> 
+      <p>Namaku idhellan thevai dhaana Gobi</p>
+      <p>#coal #vaandhi #noekuIdhellaanThevaaya</p>    
+    </div>
+    <div class="flip-card-back">
+        <img src="f4.jpg" style="width:300px;height:300px;">
+    </div>
+  </div>
+</div>
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <h1>OC Attho</h1> 
+      <p>OC Attho saaptu mallaaka vetta velila padukra sogam irkey</p> 
+      <p>#We4 #OCAttho #EnnadiYasminNadayaKatlaaama </p> 
+    </div>
+    <div class="flip-card-back">
+        <img src="f5.jpg" style="width:300px;height:300px;">
+    </div>
+  </div>
+</div>
+
+<hr class="divide">
+
+
+<div style = "margin-left: 200px;" class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+        <h1>Rose-in Decoration Leelaigal-2018</h1> 
+      <p>Andha Kaalam adhu x 5 Vasanth & Co kaalam</p> 
+      <p>#RoseTheGetthu #PicchiPoettaPanju #palayaVeedu</p>   
+    </div>
+    <div class="flip-card-back">
+        <img src="f6.gif" style="width:300px;height:300px;">
+    </div>
+  </div>
+</div>
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+        <h1>MGM</h1> 
+      <p>Angu Enna therigiradhu</p> 
+      <p>#BulbKuVaayIrundhaalumAludhurkum</p>   
+    </div>
+    <div class="flip-card-back">
+        <img src="f7.PNG" style="width:300px;height:300px;">
+    </div>
+  </div>
+</div>
+
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+        <h1>Painting</h1> 
+      <p>Pavithra -The Artist da</p> 
+      <p>#GetthaMassaaahOhhhhooooiii #LoosumNaanDhaaanArtistummNaandhaan</p>   
+    </div>
+    <div class="flip-card-back">
+        <img src="f8.jpg" style="width:300px;height:300px;">
+    </div>
+  </div>
+</div>
+
+
+
+
+<hr class="divide">
+
+
+  
+  </center>
+ 
+
+
+  <script src="main.js"></script>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+
+var gallery = document.querySelector('#gallery');
+var getVal = function (elem, style) { return parseInt(window.getComputedStyle(elem).getPropertyValue(style)); };
+var getHeight = function (item) { return item.querySelector('.content').getBoundingClientRect().height; };
+var resizeAll = function () {
+    var altura = getVal(gallery, 'grid-auto-rows');
+    var gap = getVal(gallery, 'grid-row-gap');
+    gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+        var el = item;
+        el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
+    });
+};
+gallery.querySelectorAll('img').forEach(function (item) {
+    item.classList.add('byebye');
+    if (item.complete) {
+        console.log(item.src);
+    }
+    else {
+        item.addEventListener('load', function () {
+            var altura = getVal(gallery, 'grid-auto-rows');
+            var gap = getVal(gallery, 'grid-row-gap');
+            var gitem = item.parentElement.parentElement;
+            gitem.style.gridRowEnd = "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
+            item.classList.remove('byebye');
+        });
+    }
+});
+window.addEventListener('resize', resizeAll);
+gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+    item.addEventListener('click', function () {        
+        item.classList.toggle('full');        
+    });
+});
+</script>
+    
+</body>
+</html>

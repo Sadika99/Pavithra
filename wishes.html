@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishes from Family & Friends</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <style>
+
+body{
+    text-align: center;
+    background: #40E0D0;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+font-family: cursive;
+}
+
+.wishes{
+      margin-top: 100px;
+      width:200px;
+      height:200px;
+      border-radius:200px;
+      border: 3px solid orange;
+      cursor: pointer;
+      margin-right:5px;
+   
+  }
+
+  .line{
+     
+      background-color: black;
+      border: 2px solid orange;
+      width:70%;
+      margin-left: 185px;
+      box-shadow: 1px 1px 20px black;
+      
+  }
+
+  .back{
+    width:60px;
+    height:60px;
+    background-image: url('back.png');
+    background-size: cover;
+    border-radius: 60px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    float: left;
+    margin-left:20px;
+    margin-top:-115px;
+}
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+   
+}
+
+.item{
+    position: relative;
+   
+}
+.item img{
+    
+    animation-name: shadow;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shadow {
+   
+  0%   {box-shadow:1px 1px 40px #FF0080;}
+  25%  {box-shadow:1px 1px 40px #FF8C00;}
+  50%  {box-shadow:1px 1px 40px #40E0D0;}
+  100% {box-shadow:1px 1px 40px gold;}
+
+}
+
+.item p{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity:0;
+}
+
+.item:hover p{
+    opacity: 1;
+}
+
+.item:hover img{
+    opacity: 0.66;
+} 
+
+p{
+    font-family: cursive;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.ml16 {
+  color: #402d2d;
+  padding: 40px 0;
+  font-weight: 800;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  overflow: hidden;
+  
+}
+
+.ml16 .letter {
+  display: inline-block;
+  line-height: 1em;
+  
+}
+    </style>
+</head>
+<body>
+<audio id="thasnimwish" src="ThasnimWish.ogg"></audio>
+<audio id="sadikawish" src="sadikaWish.m4a"></audio>
+<audio id="roshiniwish" src="roshiniWish.m4a"></audio>
+<audio id="sivawish" src="sivaWish.m4a"></audio>
+<audio id="rajiwish" src="rajiWish.m4a"></audio>
+
+    
+    <h1 class="ml16">WISHES FROM FAMILY & FRIENDS</h1>
+
+
+    <button onclick="navigate()" class="back"></button>
+
+    <div class="line"></div>
+
+    <div class="grid">
+
+    <div class="item">
+    <img onclick='wish("siva")' class="wishes" id="sivapic" src="siva.PNG">
+    <p>Dad</p>
+    </div>
+
+    <div class="item">
+    <img onclick='wish("raji")' class="wishes" id="rajipic" src="raji.PNG">
+    <p>Mom</p>
+    </div>
+
+    <div class="item">
+    <img onclick='wish("roshini")' class="wishes" id="roshinipic" src="roshini.PNG">
+    <p>Sis</p>
+    </div>
+
+    <div class="item">
+    <img onclick='wish("thasnim")' class="wishes" id="thasnimpic" src="thasnim.png">
+    <p>Thasnim</p>
+    </div>
+
+    <div class="item">
+    <img onclick='wish("sadika")' class="wishes" id="sadikapic" src="sadika.png">
+    <p>Sadika</p>
+    </div>
+
+    </div>
+<br><br><br>
+    <label><b>~Click on the Person's image for the Wishes</b></label>
+<script src="main.js"></script>
+</body>
+</html>

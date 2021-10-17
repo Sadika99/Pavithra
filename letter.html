@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter for Pavithra</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+      
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script src="https://www.wpromotions.eu/confetti.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Lora:400italic' rel='stylesheet' type='text/css'>
+   <style>
+     ::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: darkgrey;
+}
+
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+     .eb-lora {
+  color: #000;
+  background-color: #f6f6f6;
+  text-align: left;
+  font-family: Lora, sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 3em;
+  padding: 11em 12em 10em;
+}
+
+.eb-lora-p {
+  font-size: 17px;
+  font-size: 1.7em;
+  max-width: 570px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
+  line-height: 1.9em;
+
+}
+
+.eb-lora-fl {
+  font-size: 7em;
+  float: left;
+  line-height: 0.8em;
+  margin-top: -0.29em;
+  margin-right: -0.05em;
+}
+
+
+
+body{
+  background: rgb(9,9,9);
+background: linear-gradient(90deg, rgba(9,9,9,1) 0%, rgba(0,0,0,1) 39%, rgba(241,247,249,1) 100%, rgba(0,212,255,1) 100%);
+    text-align: center;
+    overflow: hidden;
+}
+
+.back{
+    width:60px;
+    height:60px;
+    background-image: url('back.png');
+   background-size: cover;
+    border-radius: 60px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    float: left;
+    margin-left:20px;
+    margin-top:50px;
+}
+
+h1 {
+  color: #c7c7c7;
+  font-weight: 200;
+  text-align: center;
+  position: absolute;
+  top: 45%;
+  width: 100%;
+}
+
+#salutation {
+  color: white;
+  font-weight: bold;
+  font-family: Lora, sans-serif;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+p {
+  color: #001818;
+}
+
+.wrap {
+  position: absolute;
+  overflow: hidden;
+  top: 10%;
+  right: 10%;
+  bottom: 85px;
+  left: 10%;
+  padding: 20px 50px;
+  display: block;
+  border-radius: 4px;
+  transform: translateY(20px);
+  transition: all 0.5s;
+  visibility: hidden;
+}
+.wrap .content {
+  opacity: 0;
+}
+.wrap:before {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: black ;
+  opacity: 0.3;
+  content: "";
+  bottom: 10px;
+  left: 50%;
+  top: 95%;
+  
+  
+  border-radius: 50%;
+  -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.wrap.active {
+  display: block;
+  visibility: visible;
+  box-shadow: 2px 3px 16px gold;
+  transition: all 600ms;
+  transform: translateY(0px);
+  transition: all 0.5s;
+}
+.wrap.active:before {
+  height: 2000px;
+  width: 2000px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  margin-left: -1000px;
+  margin-top: -1000px;
+  display: block;
+  -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.wrap.active .content {
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+  transition: all 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+a.button {
+  padding: 11px 11px 13px 13px;
+  outline: none;
+  border-radius: 50%;
+  background: #fff;
+  color: black;
+  font-size: 24px;
+  display: block;
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  top: auto;
+  margin-left: -25px;
+  text-decoration: none;
+  transition: transform 0.25s;
+}
+a.button:hover {
+  text-decoration: none;
+  background: black;
+  color: #fff;
+  transform: rotate(360deg);
+  transition: transform 0.5s;
+
+}
+a.button.active {
+  transform: rotate(135deg);
+  transition: transform 0.5s;
+}
+
+.ml11 {
+  font-weight: 700;
+  font-size: 3.5em;
+}
+
+.ml11 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.1em;
+  padding-right: 0.05em;
+  padding-bottom: 0.15em;
+}
+
+.ml11 .line {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 3px;
+  background-color: #fff;
+  transform-origin: 0 50%;
+}
+
+.ml11 .line1 { 
+  top: 0; 
+  left: 0;
+}
+
+.ml11 .letter {
+  display: inline-block;
+  line-height: 1em;
+  font-family: Lora, sans-serif; 
+  
+}
+
+
+   </style>
+   
+</head>
+<body>
+
+ 
+
+  <h1 class="ml11">
+    <span class="text-wrapper">
+      <span class="line line1"></span>
+      <span class="letters">LETTER</span>
+    </span>
+  </h1>
+
+   <!-- BACK BUTTON -->
+    <button onclick="navigate()" class="back"></button>
+    
+    <!-- GLYPHICON COLLAPSE BUTTON -->
+    <div  class='wrap'  style="overflow-y: scroll; max-height:100%;  margin-top: 50px; margin-bottom:50px;">
+      <div class='content'>
+        <h2 id="salutation"></h2>
+        <div class="eb-lora">
+          <p class="eb-lora-p"><span class="eb-lora-fl">H</span><b>appy Birthday, Pavi ma.🎂</b> Apro 23 vayasayirchu pola .I just can't believe how time flies. Namma first meet pannadhu 2017 (5 varsha bandham) . Bond innum strong aaytu dhaan irku .<i>"Adhellaan onga friendship college varadhaan , Academy varadhaan"</i> apdinu evalaadhu sonna namaku siripu dhaan varum (Our mindvoice be like " Dha chi engala patthi onakenna theryum ") .<br><br> <b>Manidhar Purindhu Kolla idhu Manidhar Friendship allla allla allla adhayum thaaandi punidhamaanadhu punidhamaanadhu🤘</b>
+            <br><br>
+            😂.I don't know what would I be doing if it were not for You. I am blessed to have got you 😇.Oenkitta mattum dhaan enaku naana irka feel irkum because manasula irkadha apdiye pesven yen na I know You wont judge me for what Iam or what I speak.
+            Ella journey layum ennoeda irundhurka . Let it be college , Vela thedrendra per la namma alanjadhu😂 , Veliya ponadhu , Our bus rides 
+            🚌 , College Van ride ,Our gossips together , Our academy and BU time and etc etc etc. Romba periya fun illanaalum we (Nim, nee naa and Yaas) managed to make the college,Academy,BU as much fun as possible. <br><br>
+            Onnoeda maraka mudyadha sambavam na andha Ambulance ride 
+            🚑 dhaan ba ebbbbba.Enakum Nim kum allu vittruchu . Oen mayakam oru pakkam sad factor aah irundhaalum innoru pakkam Konjam fun factorum adhuvadhaan irundhuchu both in College and Academy. <br><br>
+            I know you have been through a lot, but inimey ella nalladhaagave nadaka valathukkal with your business getting started and all.Maraka mudiya naatkal ehh kuduthurka , Inimeltum nam friendship ku endha baahdippum illama nalla padiya kondu povom.In these corona days, onna paaka mudilana kooda I don't feel a bit distanced ,innum dhaan overaah pesikitu irkoen. Veetla enna na avala thavira vera friend ehh ilayaanu kekra alavuku
+            😂😂😂. <br><br>
+            Neraya memories we have created along the way with our Friends, I will cherish them forever and I'll be there for You no matter what. 
+            Enaku oenta pudicha vishyame oen boldness dhaan, apdiye iru adhu dhaan onnoeda getthey . Indha kovam nalaa plus ennoeda assaultness naala palaaana sandaigall namaku vandhurku but epdiyo naa konjam nalla pullandradhaalaa onna mannichi sethuppen yen na oen kovam nammata vela seyyadhu.heheheheh😀😀😀 .<br><br>
+            eppodhume enna viyakka vaikradhu enna na namma sync and non sync dhaan . Sync aana texting aah irundhalaum seri namma thoughts aah iurndhalaum seri apdi sync aagum . Aana namma motthama paathoena we are two different people with a lot of non syncs - epdi dhaan namakulla oedudhoe andha bagavaney arivaaan 
+
+            <br><br> Innum onna patthi neraya soltey pogalaam but letter konjam neelamaa pogum so niruthikkiren😀
+            <br><br>
+            Here's to more and more exploring places and fun panningss with You and Nim (⚠️Pin Kurippu : If namma veetla vitta ,23 vayasu aayirchunnu dhaan peru!!🙄🙄😂)
+            <br><br>
+            Apro epdi namma website pudichirkaaa .idhai seyya pangalittha Rose enum
+            Roshini ku en manamaarndha nandrigall pala.🙏🙏🙏 
+            <br><br>
+            <b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;HAPPY BIRTHDAY BHAIYMAA !!!</b> </p>
+        </div>
+      </div>
+    </div>
+    
+    <a onclick="typeWriter()" class='button glyphicon glyphicon-plus' href='#'></a>
+    
+   <!-- CONFETTI -->
+   <script>confetti.start()</script>
+   <script>setTimeout(function(){confetti.stop();},3000)</script>
+   <script>
+    $('a').on('click', function(){
+  $('.wrap, a').toggleClass('active');
+  
+  return false;
+});
+    </script>
+    <script src="main.js"></script>
+    <script>
+
+       // Wrap every letter in a span
+var textWrappers = document.querySelector('.ml11 .letters');
+textWrappers.innerHTML = textWrappers.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml11 .line',
+    scaleY: [0,1],
+    opacity: [0.5,1],
+    easing: "easeOutExpo",
+    duration: 700
+  })
+  .add({
+    targets: '.ml11 .line',
+    translateX: [0, document.querySelector('.ml11 .letters').getBoundingClientRect().width + 10],
+    easing: "easeOutExpo",
+    duration: 700,
+    delay: 100
+  }).add({
+    targets: '.ml11 .letter',
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=775',
+    delay: (el, i) => 34 * (i+1)
+  }).add({
+    targets: '.ml11',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+
+
+  
+var i = 0;
+var txt = 'Dear Pavi,';
+var speed = 100;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("salutation").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+
+    </script>
+</body>
+</html>
